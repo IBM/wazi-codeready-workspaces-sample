@@ -1,0 +1,37 @@
+###############################################################################
+# Licensed Materials - Property of IBM
+# (c) Copyright IBM Corporation 2021. All Rights Reserved.
+#
+# Note to U.S. Government Users Restricted Rights:
+# Use, duplication or disclosure restricted by GSA ADP Schedule
+# Contract with IBM Corp.
+###############################################################################
+
+apiVersion: v2
+publisher: ibm
+name: wazi-ansible
+version: latest
+type: VS Code extension
+displayName: Ansible
+title: Ansible Che Plugin
+description: Ansible Che Plugin for IBM Wazi Developer
+icon: https://raw.githubusercontent.com/IBM/zopeneditor-about/master/che/images/ibm-wazi-developer.svg
+repository: https://github.com/ibm/wazi-codeready-workspaces-sample
+category: Language
+firstPublicationDate: '2021-10-29'
+spec:
+  containers:
+  - image: quay.io/wazi/ansible-zos:latest
+    name: wazi-ansible
+    memoryLimit: '3000Mi'
+    args:
+      - sh
+      - -c
+      - ${PLUGIN_REMOTE_ENDPOINT_EXECUTABLE}
+    volumes:
+      - mountPath: "/home/wazi/.zowe"
+        name: zowe
+
+  extensions:
+  - https://github.com/redhat-developer/codeready-workspaces-vscode-extensions/releases/download/v34b6b7e/vscode-python-2020.7.94776.vsix
+  - https://open-vsx.org/api/redhat/ansible/0.5.1/file/redhat.ansible-0.5.1.vsix

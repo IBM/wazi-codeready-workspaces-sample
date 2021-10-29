@@ -1,0 +1,72 @@
+###############################################################################
+# Licensed Materials - Property of IBM
+# (c) Copyright IBM Corporation 2021. All Rights Reserved.
+#
+# Note to U.S. Government Users Restricted Rights:
+# Use, duplication or disclosure restricted by GSA ADP Schedule
+# Contract with IBM Corp.
+###############################################################################
+
+apiVersion: 1.0.0
+
+metadata:
+  generateName: wazi-ansible-
+
+projects:
+  - name: zopeneditor-sample
+    source:
+      location: 'https://github.com/IBM/zopeneditor-sample.git'
+      branch: 'wazi-master'
+      type: git
+attributes:
+  extensions.ignoreRecommendations: 'true'
+
+components:
+
+# Ansible Plugin
+
+  - id: ibm/wazi-ansible/latest
+    type: chePlugin
+
+  - alias: ansible-terminal
+    type: dockerimage
+    image: quay.io/wazi/ansible-zos:latest
+    memoryLimit: 512M
+    mountSources: true
+    volumes:
+      - name: zowe
+        containerPath: /home/wazi/.zowe
+    args:
+      - tail
+      - '-f'
+      - /dev/null
+    env:
+      - name: HOME
+        value: /projects/
+
+# Other Plugins
+
+  - id: redhat/vscode-yaml/latest
+    type: chePlugin
+
+# Wazi Developer
+
+  - type: chePlugin
+    id: ibm/wazi-developer/latest
+    preferences:
+      Zowe-Temp-Folder-Location: '{"folderPath": "/projects"}'
+      zopeneditor.zapp.useDefaultOnlineZappSchema: true
+
+  - type: chePlugin
+    id: ibm/wazi-debug/latest
+
+  - type: dockerimage
+    alias: wazi-terminal
+    image: icr.io/wazi-code/ibm-wazi-developer-for-workspaces-codeready:latest
+    memoryLimit: 640Mi
+    volumes:
+      - name: zowe
+        containerPath: /home/wazi/.zowe
+      - name: m2
+        containerPath: /home/wazi/.m2
+    mountSources: true

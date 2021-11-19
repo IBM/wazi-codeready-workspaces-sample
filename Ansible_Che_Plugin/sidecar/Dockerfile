@@ -13,6 +13,9 @@
 
 FROM quay.io/ansible/toolset:3.5.0
 
+# Environment and Label Variables
+ENV HOME=/home/wazi
+    
 USER root
 
 # Install z/OS collections from Ansible Galaxy

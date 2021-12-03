@@ -33,5 +33,7 @@ spec:
         name: zowe
 
   extensions:
-  - https://github.com/redhat-developer/codeready-workspaces-vscode-extensions/releases/download/v34b6b7e/vscode-python-2020.7.94776.vsix
-  - https://open-vsx.org/api/redhat/ansible/0.5.1/file/redhat.ansible-0.5.1.vsix
+  - https://open-vsx.org/api/ms-python/python/2021.11.1422169775/file/ms-python.python-2021.11.1422169775.vsix
+  - https://open-vsx.org/api/ms-toolsai/jupyter/2021.11.1001533617/file/ms-toolsai.jupyter-2021.11.1001533617.vsix
+  - https://open-vsx.org/api/redhat/vscode-yaml/1.2.2/file/redhat.vscode-yaml-1.2.2.vsix
+  - https://open-vsx.org/api/redhat/ansible/0.7.1/file/redhat.ansible-0.7.1.vsix

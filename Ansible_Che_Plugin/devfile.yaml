@@ -16,7 +16,7 @@ projects:
   - name: zopeneditor-sample
     source:
       location: 'https://github.com/IBM/zopeneditor-sample.git'
-      branch: 'wazi-master'
+      branch: 'wazi-main'
       type: git
 attributes:
   extensions.ignoreRecommendations: 'true'

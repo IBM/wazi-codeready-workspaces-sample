@@ -50,6 +50,10 @@ components:
       Zowe-Temp-Folder-Location: '{"folderPath": "/projects"}'
       zopeneditor.zapp.useDefaultOnlineZappSchema: true
 
+  - type: chePlugin
+    id: ibm/wazi-debug/latest
+    alias: wazi-debug
+
   - type: dockerimage
     alias: wazi-terminal
     image: icr.io/wazi-code/ibm-wazi-developer-for-workspaces-codeready:latest

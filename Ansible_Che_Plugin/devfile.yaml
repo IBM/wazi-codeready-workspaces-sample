@@ -37,11 +37,6 @@ components:
       - name: zowe
         containerPath: /home/wazi/.zowe
 
-# Other third-party plugins
-
-  - id: redhat/vscode-yaml/latest
-    type: chePlugin
-
 # Wazi Developer default plugin
 
   - type: chePlugin
